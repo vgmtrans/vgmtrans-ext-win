@@ -11,61 +11,37 @@
  * WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- *
+ *  
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA
  */
 
-#ifndef _FLUIDSYNTH_MISC_H
-#define _FLUIDSYNTH_MISC_H
+#ifndef _FLUIDSYNTH_VERSION_H
+#define _FLUIDSYNTH_VERSION_H
 
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-
 /**
- * @file misc.h
- * @brief Miscellaneous utility functions and defines
+ * @file version.h
+ * @brief Library version functions and defines
  */
 
-/**
- * Value that indicates success, used by most libfluidsynth functions.
- * @since 1.1.0
- *
- * @note This was not publicly defined prior to libfluidsynth 1.1.0.  When
- * writing code which should also be compatible with older versions, something
- * like the following can be used:
- *
- * @code
- *   #include <fluidsynth.h>
- *
- *   #ifndef FLUID_OK
- *   #define FLUID_OK      (0)
- *   #define FLUID_FAILED  (-1)
- *   #endif
- * @endcode
- */
-#define FLUID_OK        (0)
+#define FLUIDSYNTH_VERSION       "2.1.2"           /**< String constant of libfluidsynth version. */
+#define FLUIDSYNTH_VERSION_MAJOR 2     /**< libfluidsynth major version integer constant. */
+#define FLUIDSYNTH_VERSION_MINOR 1     /**< libfluidsynth minor version integer constant. */
+#define FLUIDSYNTH_VERSION_MICRO 2     /**< libfluidsynth micro version integer constant. */
 
-/**
- * Value that indicates failure, used by most libfluidsynth functions.
- * @since 1.1.0
- *
- * @note See #FLUID_OK for more details.
- */
-#define FLUID_FAILED    (-1)
-
-
-FLUIDSYNTH_API int fluid_is_soundfont(const char *filename);
-FLUIDSYNTH_API int fluid_is_midifile(const char *filename);
+FLUIDSYNTH_API void fluid_version(int *major, int *minor, int *micro);
+FLUIDSYNTH_API char* fluid_version_str(void);
 
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif /* _FLUIDSYNTH_MISC_H */
+#endif /* _FLUIDSYNTH_VERSION_H */
