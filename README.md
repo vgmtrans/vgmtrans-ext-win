@@ -1,4 +1,7 @@
-This repository holds external dependencies needed to build VGMTrans (Qt) on Windows.
+This repository holds external dependencies needed to build (the new version of) VGMTran
+s on Windows.
 
-While it can be used to build debug builds, it should not be used to set up a development environment.
-Both Qt and FluidSynth have to live as dynamic libraries: FluidSynth uses GLib, which can't be built statically on Windows, and static Qt doesn't seem to be well-supported in general (besides producing __extremely large__ binaries)
+Qt has been built using the [qsc](https://github.com/spycrab/qsc) tool, with the provide
+d config file.
+FluidSynth binaries come directly from [upstream](https://github.com/FluidSynth/fluidsyn
+th) CI.

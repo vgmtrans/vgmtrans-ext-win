@@ -63,7 +63,7 @@ if (NOT TARGET Qt5::Zlib)
     foreach(_module_dep ${_Qt5Zlib_MODULE_DEPENDENCIES})
         if (NOT Qt5${_module_dep}_FOUND)
             find_package(Qt5${_module_dep}
-                5.14.1 ${_Qt5Zlib_FIND_VERSION_EXACT}
+                5.14.2 ${_Qt5Zlib_FIND_VERSION_EXACT}
                 ${_Qt5Zlib_DEPENDENCIES_FIND_QUIET}
                 ${_Qt5Zlib_FIND_DEPENDENCIES_REQUIRED}
                 PATHS "${CMAKE_CURRENT_LIST_DIR}/.." NO_DEFAULT_PATH

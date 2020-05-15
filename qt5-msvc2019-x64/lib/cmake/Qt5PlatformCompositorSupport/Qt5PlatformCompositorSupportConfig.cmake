@@ -6,7 +6,7 @@ endif()
 get_filename_component(_qt5PlatformCompositorSupport_install_prefix "${CMAKE_CURRENT_LIST_DIR}/../../../" ABSOLUTE)
 
 # For backwards compatibility only. Use Qt5PlatformCompositorSupport_VERSION instead.
-set(Qt5PlatformCompositorSupport_VERSION_STRING 5.14.1)
+set(Qt5PlatformCompositorSupport_VERSION_STRING 5.14.2)
 
 set(Qt5PlatformCompositorSupport_LIBRARIES Qt5::PlatformCompositorSupport)
 
@@ -82,7 +82,7 @@ function(_qt5_PlatformCompositorSupport_process_prl_file prl_file_location Confi
                     if(current_search_paths)
                         find_library(_Qt5PlatformCompositorSupport_${Configuration}_${_lib}_PATH ${_lib} HINTS ${current_search_paths} NO_DEFAULT_PATH)
                     endif()
-                    find_library(_Qt5PlatformCompositorSupport_${Configuration}_${_lib}_PATH ${_lib})
+                    find_library(_Qt5PlatformCompositorSupport_${Configuration}_${_lib}_PATH ${_lib} HINTS ${CMAKE_CXX_IMPLICIT_LINK_DIRECTORIES})
                     mark_as_advanced(_Qt5PlatformCompositorSupport_${Configuration}_${_lib}_PATH)
                     if(_Qt5PlatformCompositorSupport_${Configuration}_${_lib}_PATH)
                         list(APPEND _lib_deps
@@ -180,8 +180,8 @@ if (NOT TARGET Qt5::PlatformCompositorSupport)
 
     set(_Qt5PlatformCompositorSupport_OWN_INCLUDE_DIRS "${_qt5PlatformCompositorSupport_install_prefix}/include/" "${_qt5PlatformCompositorSupport_install_prefix}/include/QtPlatformCompositorSupport")
     set(Qt5PlatformCompositorSupport_PRIVATE_INCLUDE_DIRS
-        "${_qt5PlatformCompositorSupport_install_prefix}/include/QtPlatformCompositorSupport/5.14.1"
-        "${_qt5PlatformCompositorSupport_install_prefix}/include/QtPlatformCompositorSupport/5.14.1/QtPlatformCompositorSupport"
+        "${_qt5PlatformCompositorSupport_install_prefix}/include/QtPlatformCompositorSupport/5.14.2"
+        "${_qt5PlatformCompositorSupport_install_prefix}/include/QtPlatformCompositorSupport/5.14.2/QtPlatformCompositorSupport"
     )
     include("${CMAKE_CURRENT_LIST_DIR}/ExtraSourceIncludes.cmake" OPTIONAL)
 
@@ -225,7 +225,7 @@ if (NOT TARGET Qt5::PlatformCompositorSupport)
     foreach(_module_dep ${_Qt5PlatformCompositorSupport_MODULE_DEPENDENCIES})
         if (NOT Qt5${_module_dep}_FOUND)
             find_package(Qt5${_module_dep}
-                5.14.1 ${_Qt5PlatformCompositorSupport_FIND_VERSION_EXACT}
+                5.14.2 ${_Qt5PlatformCompositorSupport_FIND_VERSION_EXACT}
                 ${_Qt5PlatformCompositorSupport_DEPENDENCIES_FIND_QUIET}
                 ${_Qt5PlatformCompositorSupport_FIND_DEPENDENCIES_REQUIRED}
                 PATHS "${CMAKE_CURRENT_LIST_DIR}/.." NO_DEFAULT_PATH

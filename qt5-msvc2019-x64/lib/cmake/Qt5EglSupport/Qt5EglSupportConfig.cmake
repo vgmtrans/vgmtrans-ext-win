@@ -6,7 +6,7 @@ endif()
 get_filename_component(_qt5EglSupport_install_prefix "${CMAKE_CURRENT_LIST_DIR}/../../../" ABSOLUTE)
 
 # For backwards compatibility only. Use Qt5EglSupport_VERSION instead.
-set(Qt5EglSupport_VERSION_STRING 5.14.1)
+set(Qt5EglSupport_VERSION_STRING 5.14.2)
 
 set(Qt5EglSupport_LIBRARIES Qt5::EglSupport)
 
@@ -82,7 +82,7 @@ function(_qt5_EglSupport_process_prl_file prl_file_location Configuration lib_de
                     if(current_search_paths)
                         find_library(_Qt5EglSupport_${Configuration}_${_lib}_PATH ${_lib} HINTS ${current_search_paths} NO_DEFAULT_PATH)
                     endif()
-                    find_library(_Qt5EglSupport_${Configuration}_${_lib}_PATH ${_lib})
+                    find_library(_Qt5EglSupport_${Configuration}_${_lib}_PATH ${_lib} HINTS ${CMAKE_CXX_IMPLICIT_LINK_DIRECTORIES})
                     mark_as_advanced(_Qt5EglSupport_${Configuration}_${_lib}_PATH)
                     if(_Qt5EglSupport_${Configuration}_${_lib}_PATH)
                         list(APPEND _lib_deps
@@ -180,8 +180,8 @@ if (NOT TARGET Qt5::EglSupport)
 
     set(_Qt5EglSupport_OWN_INCLUDE_DIRS "${_qt5EglSupport_install_prefix}/include/" "${_qt5EglSupport_install_prefix}/include/QtEglSupport")
     set(Qt5EglSupport_PRIVATE_INCLUDE_DIRS
-        "${_qt5EglSupport_install_prefix}/include/QtEglSupport/5.14.1"
-        "${_qt5EglSupport_install_prefix}/include/QtEglSupport/5.14.1/QtEglSupport"
+        "${_qt5EglSupport_install_prefix}/include/QtEglSupport/5.14.2"
+        "${_qt5EglSupport_install_prefix}/include/QtEglSupport/5.14.2/QtEglSupport"
     )
     include("${CMAKE_CURRENT_LIST_DIR}/ExtraSourceIncludes.cmake" OPTIONAL)
 
@@ -225,7 +225,7 @@ if (NOT TARGET Qt5::EglSupport)
     foreach(_module_dep ${_Qt5EglSupport_MODULE_DEPENDENCIES})
         if (NOT Qt5${_module_dep}_FOUND)
             find_package(Qt5${_module_dep}
-                5.14.1 ${_Qt5EglSupport_FIND_VERSION_EXACT}
+                5.14.2 ${_Qt5EglSupport_FIND_VERSION_EXACT}
                 ${_Qt5EglSupport_DEPENDENCIES_FIND_QUIET}
                 ${_Qt5EglSupport_FIND_DEPENDENCIES_REQUIRED}
                 PATHS "${CMAKE_CURRENT_LIST_DIR}/.." NO_DEFAULT_PATH

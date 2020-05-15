@@ -6,7 +6,7 @@ endif()
 get_filename_component(_qt5OpenGLExtensions_install_prefix "${CMAKE_CURRENT_LIST_DIR}/../../../" ABSOLUTE)
 
 # For backwards compatibility only. Use Qt5OpenGLExtensions_VERSION instead.
-set(Qt5OpenGLExtensions_VERSION_STRING 5.14.1)
+set(Qt5OpenGLExtensions_VERSION_STRING 5.14.2)
 
 set(Qt5OpenGLExtensions_LIBRARIES Qt5::OpenGLExtensions)
 
@@ -82,7 +82,7 @@ function(_qt5_OpenGLExtensions_process_prl_file prl_file_location Configuration 
                     if(current_search_paths)
                         find_library(_Qt5OpenGLExtensions_${Configuration}_${_lib}_PATH ${_lib} HINTS ${current_search_paths} NO_DEFAULT_PATH)
                     endif()
-                    find_library(_Qt5OpenGLExtensions_${Configuration}_${_lib}_PATH ${_lib})
+                    find_library(_Qt5OpenGLExtensions_${Configuration}_${_lib}_PATH ${_lib} HINTS ${CMAKE_CXX_IMPLICIT_LINK_DIRECTORIES})
                     mark_as_advanced(_Qt5OpenGLExtensions_${Configuration}_${_lib}_PATH)
                     if(_Qt5OpenGLExtensions_${Configuration}_${_lib}_PATH)
                         list(APPEND _lib_deps
@@ -222,7 +222,7 @@ if (NOT TARGET Qt5::OpenGLExtensions)
     foreach(_module_dep ${_Qt5OpenGLExtensions_MODULE_DEPENDENCIES})
         if (NOT Qt5${_module_dep}_FOUND)
             find_package(Qt5${_module_dep}
-                5.14.1 ${_Qt5OpenGLExtensions_FIND_VERSION_EXACT}
+                5.14.2 ${_Qt5OpenGLExtensions_FIND_VERSION_EXACT}
                 ${_Qt5OpenGLExtensions_DEPENDENCIES_FIND_QUIET}
                 ${_Qt5OpenGLExtensions_FIND_DEPENDENCIES_REQUIRED}
                 PATHS "${CMAKE_CURRENT_LIST_DIR}/.." NO_DEFAULT_PATH

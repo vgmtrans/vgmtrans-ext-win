@@ -6,7 +6,7 @@ endif()
 get_filename_component(_qt5EventDispatcherSupport_install_prefix "${CMAKE_CURRENT_LIST_DIR}/../../../" ABSOLUTE)
 
 # For backwards compatibility only. Use Qt5EventDispatcherSupport_VERSION instead.
-set(Qt5EventDispatcherSupport_VERSION_STRING 5.14.1)
+set(Qt5EventDispatcherSupport_VERSION_STRING 5.14.2)
 
 set(Qt5EventDispatcherSupport_LIBRARIES Qt5::EventDispatcherSupport)
 
@@ -82,7 +82,7 @@ function(_qt5_EventDispatcherSupport_process_prl_file prl_file_location Configur
                     if(current_search_paths)
                         find_library(_Qt5EventDispatcherSupport_${Configuration}_${_lib}_PATH ${_lib} HINTS ${current_search_paths} NO_DEFAULT_PATH)
                     endif()
-                    find_library(_Qt5EventDispatcherSupport_${Configuration}_${_lib}_PATH ${_lib})
+                    find_library(_Qt5EventDispatcherSupport_${Configuration}_${_lib}_PATH ${_lib} HINTS ${CMAKE_CXX_IMPLICIT_LINK_DIRECTORIES})
                     mark_as_advanced(_Qt5EventDispatcherSupport_${Configuration}_${_lib}_PATH)
                     if(_Qt5EventDispatcherSupport_${Configuration}_${_lib}_PATH)
                         list(APPEND _lib_deps
@@ -180,8 +180,8 @@ if (NOT TARGET Qt5::EventDispatcherSupport)
 
     set(_Qt5EventDispatcherSupport_OWN_INCLUDE_DIRS "${_qt5EventDispatcherSupport_install_prefix}/include/" "${_qt5EventDispatcherSupport_install_prefix}/include/QtEventDispatcherSupport")
     set(Qt5EventDispatcherSupport_PRIVATE_INCLUDE_DIRS
-        "${_qt5EventDispatcherSupport_install_prefix}/include/QtEventDispatcherSupport/5.14.1"
-        "${_qt5EventDispatcherSupport_install_prefix}/include/QtEventDispatcherSupport/5.14.1/QtEventDispatcherSupport"
+        "${_qt5EventDispatcherSupport_install_prefix}/include/QtEventDispatcherSupport/5.14.2"
+        "${_qt5EventDispatcherSupport_install_prefix}/include/QtEventDispatcherSupport/5.14.2/QtEventDispatcherSupport"
     )
     include("${CMAKE_CURRENT_LIST_DIR}/ExtraSourceIncludes.cmake" OPTIONAL)
 
@@ -225,7 +225,7 @@ if (NOT TARGET Qt5::EventDispatcherSupport)
     foreach(_module_dep ${_Qt5EventDispatcherSupport_MODULE_DEPENDENCIES})
         if (NOT Qt5${_module_dep}_FOUND)
             find_package(Qt5${_module_dep}
-                5.14.1 ${_Qt5EventDispatcherSupport_FIND_VERSION_EXACT}
+                5.14.2 ${_Qt5EventDispatcherSupport_FIND_VERSION_EXACT}
                 ${_Qt5EventDispatcherSupport_DEPENDENCIES_FIND_QUIET}
                 ${_Qt5EventDispatcherSupport_FIND_DEPENDENCIES_REQUIRED}
                 PATHS "${CMAKE_CURRENT_LIST_DIR}/.." NO_DEFAULT_PATH

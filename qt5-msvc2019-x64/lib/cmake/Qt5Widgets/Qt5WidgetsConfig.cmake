@@ -6,7 +6,7 @@ endif()
 get_filename_component(_qt5Widgets_install_prefix "${CMAKE_CURRENT_LIST_DIR}/../../../" ABSOLUTE)
 
 # For backwards compatibility only. Use Qt5Widgets_VERSION instead.
-set(Qt5Widgets_VERSION_STRING 5.14.1)
+set(Qt5Widgets_VERSION_STRING 5.14.2)
 
 set(Qt5Widgets_LIBRARIES Qt5::Widgets)
 
@@ -60,8 +60,8 @@ if (NOT TARGET Qt5::Widgets)
 
     set(_Qt5Widgets_OWN_INCLUDE_DIRS "${_qt5Widgets_install_prefix}/include/" "${_qt5Widgets_install_prefix}/include/QtWidgets")
     set(Qt5Widgets_PRIVATE_INCLUDE_DIRS
-        "${_qt5Widgets_install_prefix}/include/QtWidgets/5.14.1"
-        "${_qt5Widgets_install_prefix}/include/QtWidgets/5.14.1/QtWidgets"
+        "${_qt5Widgets_install_prefix}/include/QtWidgets/5.14.2"
+        "${_qt5Widgets_install_prefix}/include/QtWidgets/5.14.2/QtWidgets"
     )
     include("${CMAKE_CURRENT_LIST_DIR}/ExtraSourceIncludes.cmake" OPTIONAL)
 
@@ -105,7 +105,7 @@ if (NOT TARGET Qt5::Widgets)
     foreach(_module_dep ${_Qt5Widgets_MODULE_DEPENDENCIES})
         if (NOT Qt5${_module_dep}_FOUND)
             find_package(Qt5${_module_dep}
-                5.14.1 ${_Qt5Widgets_FIND_VERSION_EXACT}
+                5.14.2 ${_Qt5Widgets_FIND_VERSION_EXACT}
                 ${_Qt5Widgets_DEPENDENCIES_FIND_QUIET}
                 ${_Qt5Widgets_FIND_DEPENDENCIES_REQUIRED}
                 PATHS "${CMAKE_CURRENT_LIST_DIR}/.." NO_DEFAULT_PATH

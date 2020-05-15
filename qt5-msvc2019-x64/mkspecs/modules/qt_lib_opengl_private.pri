@@ -1,8 +1,8 @@
-QT.opengl_private.VERSION = 5.14.1
+QT.opengl_private.VERSION = 5.14.2
 QT.opengl_private.name = QtOpenGL
 QT.opengl_private.module =
 QT.opengl_private.libs = $$QT_MODULE_LIB_BASE
-QT.opengl_private.includes = $$QT_MODULE_INCLUDE_BASE/QtOpenGL/5.14.1 $$QT_MODULE_INCLUDE_BASE/QtOpenGL/5.14.1/QtOpenGL
+QT.opengl_private.includes = $$QT_MODULE_INCLUDE_BASE/QtOpenGL/5.14.2 $$QT_MODULE_INCLUDE_BASE/QtOpenGL/5.14.2/QtOpenGL
 QT.opengl_private.frameworks =
 QT.opengl_private.depends = core_private gui_private widgets_private opengl
 QT.opengl_private.uses =

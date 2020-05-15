@@ -6,7 +6,7 @@ endif()
 get_filename_component(_qt5Bootstrap_install_prefix "${CMAKE_CURRENT_LIST_DIR}/../../../" ABSOLUTE)
 
 # For backwards compatibility only. Use Qt5Bootstrap_VERSION instead.
-set(Qt5Bootstrap_VERSION_STRING 5.14.1)
+set(Qt5Bootstrap_VERSION_STRING 5.14.2)
 
 set(Qt5Bootstrap_LIBRARIES Qt5::Bootstrap)
 
@@ -82,7 +82,7 @@ function(_qt5_Bootstrap_process_prl_file prl_file_location Configuration lib_dep
                     if(current_search_paths)
                         find_library(_Qt5Bootstrap_${Configuration}_${_lib}_PATH ${_lib} HINTS ${current_search_paths} NO_DEFAULT_PATH)
                     endif()
-                    find_library(_Qt5Bootstrap_${Configuration}_${_lib}_PATH ${_lib})
+                    find_library(_Qt5Bootstrap_${Configuration}_${_lib}_PATH ${_lib} HINTS ${CMAKE_CXX_IMPLICIT_LINK_DIRECTORIES})
                     mark_as_advanced(_Qt5Bootstrap_${Configuration}_${_lib}_PATH)
                     if(_Qt5Bootstrap_${Configuration}_${_lib}_PATH)
                         list(APPEND _lib_deps
@@ -198,7 +198,7 @@ if (NOT TARGET Qt5::Bootstrap)
     set(Qt5Bootstrap_INCLUDE_DIRS ${_Qt5Bootstrap_OWN_INCLUDE_DIRS})
 
     set(Qt5Bootstrap_DEFINITIONS -DQT_BOOTSTRAP_LIB)
-    set(Qt5Bootstrap_COMPILE_DEFINITIONS QT_BOOTSTRAP_LIB QT_VERSION_STR="\"5.14.1\"" QT_VERSION_MAJOR=5 QT_VERSION_MINOR=14 QT_VERSION_PATCH=1 QT_BOOTSTRAPPED QT_NO_CAST_TO_ASCII)
+    set(Qt5Bootstrap_COMPILE_DEFINITIONS QT_BOOTSTRAP_LIB QT_VERSION_STR="\"5.14.2\"" QT_VERSION_MAJOR=5 QT_VERSION_MINOR=14 QT_VERSION_PATCH=2 QT_BOOTSTRAPPED QT_NO_CAST_TO_ASCII)
     set(_Qt5Bootstrap_MODULE_DEPENDENCIES "")
 
 
@@ -222,7 +222,7 @@ if (NOT TARGET Qt5::Bootstrap)
     foreach(_module_dep ${_Qt5Bootstrap_MODULE_DEPENDENCIES})
         if (NOT Qt5${_module_dep}_FOUND)
             find_package(Qt5${_module_dep}
-                5.14.1 ${_Qt5Bootstrap_FIND_VERSION_EXACT}
+                5.14.2 ${_Qt5Bootstrap_FIND_VERSION_EXACT}
                 ${_Qt5Bootstrap_DEPENDENCIES_FIND_QUIET}
                 ${_Qt5Bootstrap_FIND_DEPENDENCIES_REQUIRED}
                 PATHS "${CMAKE_CURRENT_LIST_DIR}/.." NO_DEFAULT_PATH
@@ -280,7 +280,7 @@ if (NOT TARGET Qt5::Bootstrap)
     set_property(TARGET Qt5::Bootstrap PROPERTY
       INTERFACE_INCLUDE_DIRECTORIES ${_Qt5Bootstrap_OWN_INCLUDE_DIRS})
     set_property(TARGET Qt5::Bootstrap PROPERTY
-      INTERFACE_COMPILE_DEFINITIONS QT_BOOTSTRAP_LIB QT_VERSION_STR="\"5.14.1\"" QT_VERSION_MAJOR=5 QT_VERSION_MINOR=14 QT_VERSION_PATCH=1 QT_BOOTSTRAPPED QT_NO_CAST_TO_ASCII)
+      INTERFACE_COMPILE_DEFINITIONS QT_BOOTSTRAP_LIB QT_VERSION_STR="\"5.14.2\"" QT_VERSION_MAJOR=5 QT_VERSION_MINOR=14 QT_VERSION_PATCH=2 QT_BOOTSTRAPPED QT_NO_CAST_TO_ASCII)
 
     set_property(TARGET Qt5::Bootstrap PROPERTY INTERFACE_QT_ENABLED_FEATURES )
     set_property(TARGET Qt5::Bootstrap PROPERTY INTERFACE_QT_DISABLED_FEATURES )

@@ -6,7 +6,7 @@ endif()
 get_filename_component(_qt5WinExtras_install_prefix "${CMAKE_CURRENT_LIST_DIR}/../../../" ABSOLUTE)
 
 # For backwards compatibility only. Use Qt5WinExtras_VERSION instead.
-set(Qt5WinExtras_VERSION_STRING 5.14.1)
+set(Qt5WinExtras_VERSION_STRING 5.14.2)
 
 set(Qt5WinExtras_LIBRARIES Qt5::WinExtras)
 
@@ -60,8 +60,8 @@ if (NOT TARGET Qt5::WinExtras)
 
     set(_Qt5WinExtras_OWN_INCLUDE_DIRS "${_qt5WinExtras_install_prefix}/include/" "${_qt5WinExtras_install_prefix}/include/QtWinExtras")
     set(Qt5WinExtras_PRIVATE_INCLUDE_DIRS
-        "${_qt5WinExtras_install_prefix}/include/QtWinExtras/5.14.1"
-        "${_qt5WinExtras_install_prefix}/include/QtWinExtras/5.14.1/QtWinExtras"
+        "${_qt5WinExtras_install_prefix}/include/QtWinExtras/5.14.2"
+        "${_qt5WinExtras_install_prefix}/include/QtWinExtras/5.14.2/QtWinExtras"
     )
     include("${CMAKE_CURRENT_LIST_DIR}/ExtraSourceIncludes.cmake" OPTIONAL)
 
@@ -105,7 +105,7 @@ if (NOT TARGET Qt5::WinExtras)
     foreach(_module_dep ${_Qt5WinExtras_MODULE_DEPENDENCIES})
         if (NOT Qt5${_module_dep}_FOUND)
             find_package(Qt5${_module_dep}
-                5.14.1 ${_Qt5WinExtras_FIND_VERSION_EXACT}
+                5.14.2 ${_Qt5WinExtras_FIND_VERSION_EXACT}
                 ${_Qt5WinExtras_DEPENDENCIES_FIND_QUIET}
                 ${_Qt5WinExtras_FIND_DEPENDENCIES_REQUIRED}
                 PATHS "${CMAKE_CURRENT_LIST_DIR}/.." NO_DEFAULT_PATH
