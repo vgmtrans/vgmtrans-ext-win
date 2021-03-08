@@ -1,6 +1,4 @@
-This repository holds external dependencies needed to build (the new version of) VGMTran
-s on Windows.
+This repository holds external dependencies needed to build VGMTrans on Windows.
 
-Qt has been built using the [qsc](https://github.com/spycrab/qsc) tool, with the provide
-d config file.
-FluidSynth binaries come directly from [upstream](https://github.com/FluidSynth/fluidsynth) CI.
+Qt has been built using the [qsc](https://github.com/spycrab/qsc) tool, with the provided config file.
+FluidSynth is replaced by [solidsynth](https://github.com/vgmtrans/solidsynth), a hacky patchset that gets rid of the GLib dependency.
