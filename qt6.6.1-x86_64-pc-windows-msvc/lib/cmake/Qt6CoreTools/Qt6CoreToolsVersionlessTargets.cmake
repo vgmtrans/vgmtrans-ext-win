@@ -1,4 +1,4 @@
-foreach(__qt_tool syncqt;moc;rcc;tracepointgen;tracegen;cmake_automoc_parser;qlalr;qtpaths;androiddeployqt;androidtestrunner;windeployqt)
+foreach(__qt_tool syncqt;moc;rcc;tracepointgen;tracegen;cmake_automoc_parser;qlalr;qtpaths;windeployqt)
     if(NOT TARGET Qt::${__qt_tool} AND TARGET Qt6::${__qt_tool})
         add_executable(Qt::${__qt_tool} IMPORTED GLOBAL)
 

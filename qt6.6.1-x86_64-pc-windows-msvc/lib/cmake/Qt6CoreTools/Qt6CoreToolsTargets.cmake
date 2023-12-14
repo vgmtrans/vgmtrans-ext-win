@@ -19,7 +19,7 @@ set(CMAKE_IMPORT_FILE_VERSION 1)
 set(_cmake_targets_defined "")
 set(_cmake_targets_not_defined "")
 set(_cmake_expected_targets "")
-foreach(_cmake_expected_target IN ITEMS Qt6::syncqt Qt6::moc Qt6::rcc Qt6::tracepointgen Qt6::tracegen Qt6::cmake_automoc_parser Qt6::qlalr Qt6::qtpaths Qt6::androiddeployqt Qt6::androidtestrunner Qt6::windeployqt)
+foreach(_cmake_expected_target IN ITEMS Qt6::syncqt Qt6::moc Qt6::rcc Qt6::tracepointgen Qt6::tracegen Qt6::cmake_automoc_parser Qt6::qlalr Qt6::qtpaths Qt6::windeployqt)
   list(APPEND _cmake_expected_targets "${_cmake_expected_target}")
   if(TARGET "${_cmake_expected_target}")
     list(APPEND _cmake_targets_defined "${_cmake_expected_target}")
@@ -129,26 +129,6 @@ set_target_properties(Qt6::qlalr PROPERTIES
 add_executable(Qt6::qtpaths IMPORTED)
 
 set_target_properties(Qt6::qtpaths PROPERTIES
-  COMPATIBLE_INTERFACE_STRING "QT_MAJOR_VERSION"
-  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
-  INTERFACE_QT_MAJOR_VERSION "6"
-  _qt_package_version "6.6.1"
-)
-
-# Create imported target Qt6::androiddeployqt
-add_executable(Qt6::androiddeployqt IMPORTED)
-
-set_target_properties(Qt6::androiddeployqt PROPERTIES
-  COMPATIBLE_INTERFACE_STRING "QT_MAJOR_VERSION"
-  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
-  INTERFACE_QT_MAJOR_VERSION "6"
-  _qt_package_version "6.6.1"
-)
-
-# Create imported target Qt6::androidtestrunner
-add_executable(Qt6::androidtestrunner IMPORTED)
-
-set_target_properties(Qt6::androidtestrunner PROPERTIES
   COMPATIBLE_INTERFACE_STRING "QT_MAJOR_VERSION"
   INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
   INTERFACE_QT_MAJOR_VERSION "6"

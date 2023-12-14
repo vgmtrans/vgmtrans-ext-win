@@ -54,6 +54,7 @@ configure:
         - qtwebsockets
         - qtwebview
     feature:
+        androiddeployqt: false
         concurrent: false
         dbus: false
         gif: false
@@ -62,6 +63,7 @@ configure:
         jpeg: false
         network: false
         printsupport: false
+        qdoc: false
         qmake: false
         sql: false
         testlib: false
